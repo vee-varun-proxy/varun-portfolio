@@ -8,3 +8,11 @@ export { Providers } from "@/components/Providers";
 export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
+
+// Visitor context and personalization
+export { VisitorContextProvider, useVisitorContext } from "@/components/VisitorContextProvider";
+export { PersonalizedAvatar } from "@/components/PersonalizedAvatar";
+export { PersonalizedGreeting } from "@/components/PersonalizedGreeting";
+export { ContextualMessage } from "@/components/ContextualMessage";
+export { PersonalizedHero } from "@/components/PersonalizedHero";
+export { GeoDebugPanel } from "@/components/GeoDebugPanel";
