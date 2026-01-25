@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Varun",
   lastName: "Baker",
   name: `Varun Baker`,
-  role: "Senior Drupal Software Engineer",
+  role: "AI-Enabled Software Architect",
   avatar: "/images/avatar.jpg",
   email: "varun.baker+online@gmail.com",
   location: "America/New_York", // IANA timezone identifier for Eastern Time (New York)
@@ -17,8 +17,8 @@ const newsletter: Newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      Weekly insights on Drupal development, enterprise CMS platforms, accessibility,
-      security, and building solutions for federal agencies and regulated industries
+      Insights on AI-augmented engineering, building 10x faster with modern tools,
+      cloud architecture, and lessons from the frontier of human-AI collaboration
     </>
   ),
 };
@@ -57,19 +57,19 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  title: `${person.name} – AI-Enabled Software Architect`,
+  description: `Portfolio of ${person.name}: AI-augmented engineer shipping 100x faster through strategic architecture and modern AI tooling`,
   headline: (
     <>
-      Building enterprise platforms with <Text as="span" size="xl" weight="strong">Drupal</Text>,{" "}
-      <Text as="span" size="xl" weight="strong">React</Text>, and modern web technologies
+      <Text as="span" size="xl" weight="strong">AI writes code.</Text>{" "}
+      I architect outcomes.
     </>
   ),
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Senior Drupal Engineer</strong>{" "}
+        <strong className="ml-4">AI-Enabled Architect</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
@@ -80,10 +80,8 @@ const home: Home = {
   },
   subline: (
     <>
-      15+ years building software, 10+ years delivering{" "}
-      <Text as="span" size="xl" weight="strong">Drupal</Text> platforms for federal agencies and
-      regulated enterprises.{" "}
-      <br /> Specializing in security, accessibility, CI/CD, and enterprise CMS solutions.
+      The code is automated.{" "}
+      The judgment is not.
     </>
   ),
 };
@@ -92,7 +90,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from Fairfax, VA`,
+  description: `Meet ${person.name}, ${person.role} – shipping 100x faster with AI while keeping code quality high`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -102,20 +100,18 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://calendar.app.google/Qs3vZMkb9JVjNT2g6",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Senior Drupal Software Engineer with 15+ years of software development experience
-        and 10+ years delivering Drupal platforms for federal agencies and regulated enterprises.
-        Proven technical lead for enterprise CMS platforms with deep expertise in security,
-        Section 508/WCAG accessibility, CI/CD automation, performance optimization, and vendor
-        coordination (Acquia, Pantheon). Experienced supporting mission-critical systems
-        requiring Public Trust–level rigor. Contributor to the Drupal community and open source
-        advocate.
+        I'm a software architect focused on one simple leverage point: let AI write the code, while I do the work that actually compounds—system design, edge cases, and the decisions that prevent technical debt before it exists.
+        <br /><br />
+        With 15+ years shipping production software, I've led and built enterprise platforms for federal agencies and Fortune 500 companies. I know when AI is right, when it's wrong, and when judgment matters more than speed. I'm as comfortable setting technical direction with executives as I am debugging a race condition at 2 a.m.
+        <br /><br />
+        I'm currently exploring the frontier of AI-augmented engineering, building with Svelte, Python, and modern cloud infrastructure—and writing about what I learn along the way.
       </>
     ),
   },
@@ -125,13 +121,12 @@ const about: About = {
     experiences: [
       {
         company: "Express Scripts, The Cigna Group",
-        timeframe: "June 2024 - Present",
-        role: "Senior Drupal Developer",
+        timeframe: "June 2024 - December 2025",
+        role: "Senior Software Engineer",
         achievements: [
           <>
-            Served as senior technical lead for enterprise Drupal platforms supporting
-            healthcare systems in highly regulated environments, leading Drupal core and
-            contributed module updates (10 → 11) with full regression testing and
+            Senior technical lead for enterprise healthcare platforms in highly regulated
+            environments, leading major version upgrades with full regression testing and
             zero-downtime deployments.
           </>,
           <>
@@ -140,24 +135,14 @@ const about: About = {
             for mission-critical healthcare platforms.
           </>,
           <>
-            Implemented accessibility-first development practices, remediating WCAG and
-            Section 508 issues across public and administrative interfaces, ensuring
-            compliance for healthcare websites serving thousands of users.
-          </>,
-          <>
             Integrated enterprise identity solutions including SAML-based SSO and MFA
-            across 8+ healthcare platforms (eCMS, Evernorth, EviCore, Quallent, MDLIVE),
-            supporting thousands of authenticated users.
+            across 8+ healthcare platforms, supporting thousands of authenticated users
+            with HIPAA-compliant security measures.
           </>,
           <>
-            Partnered with security teams to remediate vulnerabilities identified through
-            automated scans, implementing enterprise security features including CSP
-            configurations, OneTrust integration, and HIPAA compliance measures.
-          </>,
-          <>
-            Designed and maintained CI/CD pipelines supporting automated builds, tests, and
-            deployments, improving platform performance through frontend optimization and
-            responsive design strategies.
+            Designed and maintained CI/CD pipelines supporting automated builds, tests,
+            and deployments. Partnered with security teams on vulnerability remediation
+            and CSP configurations.
           </>,
         ],
         images: [],
@@ -165,40 +150,31 @@ const about: About = {
       {
         company: "Zyxware Technologies",
         timeframe: "January 2019 - May 2024",
-        role: "Senior Software Engineer (React/Drupal)",
+        role: "Senior Software Engineer (React/Full-Stack)",
         achievements: [
           <>
-            Led modernization and migration of 30+ Drupal 10 websites for Arizona
-            Strategic Enterprise Technology (ASET) Office on Pantheon Cloud, coordinating
-            deployments across multiple environments and resulting in a 61% decrease in
-            support costs.
+            Led modernization and migration of 30+ enterprise websites for Arizona
+            Strategic Enterprise Technology (ASET) Office on cloud infrastructure,
+            resulting in a 61% decrease in support costs.
           </>,
           <>
-            Spearheaded development and implementation of a Drupal 10-based distribution
-            for the State of Arizona, conducting requirements gathering sessions to craft
-            expert digital experience design for 170+ state agencies.
+            Architected enterprise CMS distribution serving 170+ state agencies,
+            conducting requirements gathering and designing scalable digital
+            experience solutions.
           </>,
           <>
-            Collaborated with cross-functional teams to streamline processes, leading to
-            a 100% reduction of delays in project delivery timeline through improved CI/CD
-            pipeline deployment automation from git repositories to Acquia Drupal Cloud
-            and Pantheon hosting environments.
+            Achieved 100% reduction of project delivery delays through improved CI/CD
+            pipeline automation, deploying from git repositories to cloud hosting
+            environments.
           </>,
           <>
-            Extended USWDS-based Drupal themes to meet federal frontend, accessibility, and
-            usability standards, leading accessibility remediation efforts to ensure
-            compliance with Section 508 and WCAG standards across federal platforms.
+            Rebuilt integrated document gateway for U.S. Department of Labor OCIO,
+            implementing robust caching mechanisms and API integrations with Appian.
           </>,
           <>
-            Rebuilt the integrated gateway for filing and serving documents for the Office
-            of the Chief Information Officer (OCIO) of the U.S. Department of Labor,
-            implementing logic and robust caching mechanisms for refactored File/eServe
-            User Dashboard communicating with Appian API.
-          </>,
-          <>
-            Contributed the Google Analytics Dashboard module to Drupal.org, creating
-            over 12 mobile-friendly custom website designs by extending SASS-based Barrio
-            Bootstrap theme.
+            Led accessibility remediation efforts ensuring Section 508 and WCAG
+            compliance across federal platforms, extending USWDS-based themes for
+            federal frontend standards.
           </>,
         ],
         images: [],
@@ -209,24 +185,19 @@ const about: About = {
         role: "CTO",
         achievements: [
           <>
-            Developed and deployed Open Data Portals for the Governments of Jamaica and
-            St. Lucia based on Drupal 7, later upgrading Jamaica's portal to Drupal 10
-            with a decoupled JavaScript (React) front-end.
+            Developed and deployed Open Data Portals for the Governments of Jamaica
+            and St. Lucia, later upgrading to modern decoupled architecture with
+            React front-end.
           </>,
           <>
-            Utilized Amazon Web Services including VPC, Route 53, RDS, EC2, ECS/EKS
-            Container, S3, CloudWatch, CloudFront, and Snowflake to architect end-to-end
-            solutions for clients, leveraging business intelligence tools for processing
-            large datasets including financial data.
+            Architected end-to-end AWS solutions (VPC, Route 53, RDS, EC2, ECS/EKS,
+            S3, CloudWatch, CloudFront) for government and enterprise clients,
+            processing large financial datasets with BI tools.
           </>,
           <>
-            Designed custom APIs to support both mobile applications and desktop users,
-            authored automation scripts for test results and analysis after load and
-            security testing to ensure high performance and responsiveness.
-          </>,
-          <>
-            Integrated version control systems with GitHub and managed website deployment
-            using Drush, building scalable solutions for government and enterprise clients.
+            Designed custom APIs for mobile and desktop applications, authored
+            automation scripts for load testing and security analysis to ensure
+            high performance.
           </>,
         ],
         images: [],
@@ -234,22 +205,19 @@ const about: About = {
       {
         company: "OpenConcept Consulting Inc.",
         timeframe: "September 2008 - October 2011",
-        role: "Consultant",
+        role: "Software Consultant",
         achievements: [
           <>
-            Developed customized web applications based on business needs, interacting
-            directly with clients to specify requirements and keeping stakeholders updated
-            on project status throughout implementation phases.
+            Developed customized web applications based on business requirements,
+            working directly with clients through all implementation phases.
           </>,
           <>
-            Enabled streamlined content translation for Drupal websites to support
-            multilingual content in English, French, Hebrew, and Arabic with both
-            left-to-right and right-to-left frontend support.
+            Built multilingual content platforms supporting English, French, Hebrew,
+            and Arabic with bidirectional text rendering.
           </>,
           <>
-            Adjusted front-end code for Drupal-based web applications to meet WCAG 2.0
-            Accessibility Standards, creating the first OpenConcept installation profile
-            to save time when starting new Drupal projects.
+            Implemented WCAG 2.0 accessibility standards across web applications,
+            creating reusable installation profiles to accelerate project delivery.
           </>,
         ],
         images: [],
@@ -303,116 +271,49 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Enterprise Drupal & CMS",
+        title: "AI-Augmented Development",
         description: (
           <>
-            Deep expertise in Drupal 7-11, custom and contributed modules, configuration
-            management, multisite architectures, Acquia Drupal Cloud, Pantheon, Drush,
-            Composer, content workflows, moderation, and publishing automation. Acquia
-            Certified Site Builder with proven experience leading enterprise platform
-            migrations and upgrades.
+            Leveraging AI coding assistants (Claude, Cursor, GitHub Copilot) to ship at 10-100x
+            speed while maintaining code quality. Expert at prompt engineering, AI code review,
+            and knowing when to trust AI output vs. when to intervene. Building workflows that
+            combine AI speed with human judgment for zero-regret deployments.
           </>
         ),
         tags: [
           {
-            name: "Drupal",
-            icon: "drupal",
+            name: "Claude",
+            icon: "sparkle",
           },
           {
-            name: "PHP",
-            icon: "php",
+            name: "Cursor",
+            icon: "code",
           },
           {
-            name: "Drush",
-            icon: "terminal",
+            name: "Copilot",
+            icon: "github",
           },
         ],
         images: [],
       },
       {
-        title: "Frontend Development",
-        description: (
-          <>
-            Building modern, responsive user interfaces with React, TypeScript, JavaScript,
-            jQuery, HTML5, CSS, SASS, LESS, and component libraries. Experience with USWDS
-            (U.S. Web Design System) for federal platforms and mobile-first development
-            strategies.
-          </>
-        ),
-        tags: [
-          {
-            name: "React",
-            icon: "react",
-          },
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "TypeScript",
-            icon: "typescript",
-          },
-        ],
-        images: [],
-      },
-      {
-        title: "Security, Identity & Compliance",
-        description: (
-          <>
-            Implementing enterprise security solutions including SAML, OAuth2, MFA, LDAP,
-            IAM, CSP, vulnerability remediation, OWASP mitigation, HIPAA compliance, and
-            federal security scan remediation. Experience with OneTrust integration and
-            Public Trust-level security requirements.
-          </>
-        ),
-        tags: [
-          {
-            name: "SAML",
-            icon: "lock",
-          },
-          {
-            name: "OAuth2",
-            icon: "lock",
-          },
-        ],
-        images: [],
-      },
-      {
-        title: "Accessibility & QA",
-        description: (
-          <>
-            Expert in Section 508 and WCAG 2.1 AA compliance, conducting accessibility
-            audits and remediation across public and administrative interfaces. Experience
-            with Cypress automated testing and accessibility-first development practices
-            for federal and healthcare platforms.
-          </>
-        ),
-        tags: [
-          {
-            name: "WCAG",
-            icon: "accessibility",
-          },
-          {
-            name: "Section 508",
-            icon: "accessibility",
-          },
-        ],
-        images: [],
-      },
-      {
-        title: "DevOps & Cloud Infrastructure",
+        title: "Cloud Architecture & DevOps",
         description: (
           <>
             Designing and maintaining CI/CD pipelines for automated builds, tests, and
-            deployments. Extensive AWS experience (VPC, Route 53, RDS, EC2, ECS/EKS, S3,
-            CloudWatch, CloudFront, Snowflake). Coordinating with hosting vendors (Acquia,
-            Pantheon) for platform optimization and deployment automation.
+            zero-downtime deployments. Extensive AWS experience (VPC, Route 53, RDS, EC2,
+            ECS/EKS, S3, CloudWatch, CloudFront). Infrastructure as code with Terraform,
+            container orchestration, and platform optimization at scale.
           </>
         ),
         tags: [
           {
             name: "AWS",
             icon: "aws",
+          },
+          {
+            name: "Docker",
+            icon: "docker",
           },
           {
             name: "CI/CD",
@@ -422,27 +323,90 @@ const about: About = {
         images: [],
       },
       {
-        title: "Languages & Additional Technologies",
+        title: "Full-Stack Engineering",
         description: (
           <>
-            Proficient in Python, PHP, SQL, HTML5, CSS, JavaScript, C++, bash, NoSQL,
-            TypeScript, ReactJS, jQuery, Solidity, Java. Experience with business
-            intelligence tools, ETL processes, API development, and data visualization
-            with Chart.js.
+            Building end-to-end applications with modern frameworks. Frontend expertise in
+            Svelte, React, and TypeScript. Backend proficiency in Python and Node.js. Comfortable
+            across the entire stack from database design to pixel-perfect UI implementation.
           </>
         ),
         tags: [
+          {
+            name: "Svelte",
+            icon: "code",
+          },
           {
             name: "Python",
             icon: "python",
           },
           {
-            name: "SQL",
-            icon: "database",
+            name: "React",
+            icon: "react",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "System Design & Architecture",
+        description: (
+          <>
+            Designing scalable, maintainable systems that stand the test of time. Expert at
+            identifying technical debt before it accumulates, making build-vs-buy decisions,
+            and translating business requirements into robust technical solutions. Experience
+            leading enterprise platform migrations and major version upgrades.
+          </>
+        ),
+        tags: [
+          {
+            name: "Architecture",
+            icon: "grid",
           },
           {
-            name: "Java",
-            icon: "java",
+            name: "APIs",
+            icon: "code",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Security & Compliance",
+        description: (
+          <>
+            Implementing enterprise security solutions including SAML, OAuth2, MFA, and IAM.
+            Experience with HIPAA compliance, federal security requirements, and vulnerability
+            remediation. Public Trust clearance experience supporting mission-critical systems.
+          </>
+        ),
+        tags: [
+          {
+            name: "OAuth2",
+            icon: "lock",
+          },
+          {
+            name: "SAML",
+            icon: "lock",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Enterprise CMS & Web Platforms",
+        description: (
+          <>
+            Deep experience building and maintaining enterprise content platforms for federal
+            agencies and regulated industries. Expert in accessibility (WCAG/508), performance
+            optimization, and coordinating with hosting vendors for mission-critical deployments.
+          </>
+        ),
+        tags: [
+          {
+            name: "CMS",
+            icon: "grid",
+          },
+          {
+            name: "Accessibility",
+            icon: "accessibility",
           },
         ],
         images: [],
@@ -454,8 +418,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about Drupal, enterprise CMS, and federal web development",
-  description: `Technical insights, tutorials, and thoughts on Drupal development, accessibility, security, and building platforms for regulated environments`,
+  title: "Writing about AI-augmented engineering and building at 100x speed",
+  description: `Lessons from the frontier of AI-assisted development: what works, what doesn't, and how senior engineers can leverage AI to ship faster without sacrificing quality`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
