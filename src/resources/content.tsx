@@ -2,20 +2,25 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Varun",
+  lastName: "Baker",
+  name: `Varun Baker`,
+  role: "Senior Drupal Software Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "varun.baker+online@gmail.com",
+  location: "America/New_York", // IANA timezone identifier for Eastern Time (New York)
+  languages: ["English"],
 };
 
 const newsletter: Newsletter = {
   display: true,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: (
+    <>
+      Weekly insights on Drupal development, enterprise CMS platforms, accessibility,
+      security, and building solutions for federal agencies and regulated industries
+    </>
+  ),
 };
 
 const social: Social = [
@@ -25,26 +30,20 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/varunity",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/varunbaker",
     essential: true,
   },
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
+    link: "https://www.instagram.com/varunbaker",
     essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-    essential: true,
   },
   {
     name: "Email",
@@ -60,12 +59,17 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: (
+    <>
+      Building enterprise platforms with <Text as="span" size="xl" weight="strong">Drupal</Text>,{" "}
+      <Text as="span" size="xl" weight="strong">React</Text>, and modern web technologies
+    </>
+  ),
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Senior Drupal Engineer</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
@@ -76,8 +80,11 @@ const home: Home = {
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      15+ years building software, 10+ years delivering{" "}
+      <Text as="span" size="xl" weight="strong">Drupal</Text> platforms for federal agencies and
+      regulated enterprises.{" "}
+      <br /> Specializing in security, accessibility, CI/CD, and enterprise CMS solutions.
+    </>
   ),
 };
 
@@ -85,7 +92,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} from Fairfax, VA`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -102,52 +109,147 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Senior Drupal Software Engineer with 15+ years of software development experience
+        and 10+ years delivering Drupal platforms for federal agencies and regulated enterprises.
+        Proven technical lead for enterprise CMS platforms with deep expertise in security,
+        Section 508/WCAG accessibility, CI/CD automation, performance optimization, and vendor
+        coordination (Acquia, Pantheon). Experienced supporting mission-critical systems
+        requiring Public Trust–level rigor. Contributor to the Drupal community and open source
+        advocate.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Express Scripts, The Cigna Group",
+        timeframe: "June 2024 - Present",
+        role: "Senior Drupal Developer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Served as senior technical lead for enterprise Drupal platforms supporting
+            healthcare systems in highly regulated environments, leading Drupal core and
+            contributed module updates (10 → 11) with full regression testing and
+            zero-downtime deployments.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Owned release management across 15+ production deployments, including
+            configuration synchronization, rollback planning, and deployment runbooks
+            for mission-critical healthcare platforms.
+          </>,
+          <>
+            Implemented accessibility-first development practices, remediating WCAG and
+            Section 508 issues across public and administrative interfaces, ensuring
+            compliance for healthcare websites serving thousands of users.
+          </>,
+          <>
+            Integrated enterprise identity solutions including SAML-based SSO and MFA
+            across 8+ healthcare platforms (eCMS, Evernorth, EviCore, Quallent, MDLIVE),
+            supporting thousands of authenticated users.
+          </>,
+          <>
+            Partnered with security teams to remediate vulnerabilities identified through
+            automated scans, implementing enterprise security features including CSP
+            configurations, OneTrust integration, and HIPAA compliance measures.
+          </>,
+          <>
+            Designed and maintained CI/CD pipelines supporting automated builds, tests, and
+            deployments, improving platform performance through frontend optimization and
+            responsive design strategies.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Zyxware Technologies",
+        timeframe: "January 2019 - May 2024",
+        role: "Senior Software Engineer (React/Drupal)",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Led modernization and migration of 30+ Drupal 10 websites for Arizona
+            Strategic Enterprise Technology (ASET) Office on Pantheon Cloud, coordinating
+            deployments across multiple environments and resulting in a 61% decrease in
+            support costs.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Spearheaded development and implementation of a Drupal 10-based distribution
+            for the State of Arizona, conducting requirements gathering sessions to craft
+            expert digital experience design for 170+ state agencies.
+          </>,
+          <>
+            Collaborated with cross-functional teams to streamline processes, leading to
+            a 100% reduction of delays in project delivery timeline through improved CI/CD
+            pipeline deployment automation from git repositories to Acquia Drupal Cloud
+            and Pantheon hosting environments.
+          </>,
+          <>
+            Extended USWDS-based Drupal themes to meet federal frontend, accessibility, and
+            usability standards, leading accessibility remediation efforts to ensure
+            compliance with Section 508 and WCAG standards across federal platforms.
+          </>,
+          <>
+            Rebuilt the integrated gateway for filing and serving documents for the Office
+            of the Chief Information Officer (OCIO) of the U.S. Department of Labor,
+            implementing logic and robust caching mechanisms for refactored File/eServe
+            User Dashboard communicating with Appian API.
+          </>,
+          <>
+            Contributed the Google Analytics Dashboard module to Drupal.org, creating
+            over 12 mobile-friendly custom website designs by extending SASS-based Barrio
+            Bootstrap theme.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Digital Development International LLC",
+        timeframe: "November 2011 - December 2018",
+        role: "CTO",
+        achievements: [
+          <>
+            Developed and deployed Open Data Portals for the Governments of Jamaica and
+            St. Lucia based on Drupal 7, later upgrading Jamaica's portal to Drupal 10
+            with a decoupled JavaScript (React) front-end.
+          </>,
+          <>
+            Utilized Amazon Web Services including VPC, Route 53, RDS, EC2, ECS/EKS
+            Container, S3, CloudWatch, CloudFront, and Snowflake to architect end-to-end
+            solutions for clients, leveraging business intelligence tools for processing
+            large datasets including financial data.
+          </>,
+          <>
+            Designed custom APIs to support both mobile applications and desktop users,
+            authored automation scripts for test results and analysis after load and
+            security testing to ensure high performance and responsiveness.
+          </>,
+          <>
+            Integrated version control systems with GitHub and managed website deployment
+            using Drush, building scalable solutions for government and enterprise clients.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "OpenConcept Consulting Inc.",
+        timeframe: "September 2008 - October 2011",
+        role: "Consultant",
+        achievements: [
+          <>
+            Developed customized web applications based on business needs, interacting
+            directly with clients to specify requirements and keeping stakeholders updated
+            on project status throughout implementation phases.
+          </>,
+          <>
+            Enabled streamlined content translation for Drupal websites to support
+            multilingual content in English, French, Hebrew, and Arabic with both
+            left-to-right and right-to-left frontend support.
+          </>,
+          <>
+            Adjusted front-end code for Drupal-based web applications to meet WCAG 2.0
+            Accessibility Standards, creating the first OpenConcept installation profile
+            to save time when starting new Drupal projects.
           </>,
         ],
         images: [],
@@ -155,78 +257,195 @@ const about: About = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education & Certifications",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "University of the West Indies, Mona",
+        description: (
+          <>
+            BSc. Computer Science and Electronics (double major), 2002-2006. Graduated
+            with honors from the Faculty of Pure and Applied Sciences.
+          </>
+        ),
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Acquia Certified Site Builder - Drupal 9",
+        description: (
+          <>
+            Certified Drupal 9 Site Builder, demonstrating expertise in building and
+            configuring Drupal sites using Acquia's platform and best practices.
+          </>
+        ),
+      },
+      {
+        name: "Scrum Fundamentals Certified (SFC™)",
+        description: (
+          <>
+            Certified in Scrum fundamentals, enabling effective agile project management
+            and collaboration in cross-functional teams.
+          </>
+        ),
+      },
+      {
+        name: "Udemy Machine Learning A-Z™",
+        description: (
+          <>
+            Hands-On Python & R In Data Science certification, covering machine learning
+            fundamentals and practical applications.
+          </>
+        ),
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "Enterprise Drupal & CMS",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>
+            Deep expertise in Drupal 7-11, custom and contributed modules, configuration
+            management, multisite architectures, Acquia Drupal Cloud, Pantheon, Drush,
+            Composer, content workflows, moderation, and publishing automation. Acquia
+            Certified Site Builder with proven experience leading enterprise platform
+            migrations and upgrades.
+          </>
         ),
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Drupal",
+            icon: "drupal",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "PHP",
+            icon: "php",
+          },
+          {
+            name: "Drush",
+            icon: "terminal",
           },
         ],
+        images: [],
       },
       {
-        title: "Next.js",
+        title: "Frontend Development",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>
+            Building modern, responsive user interfaces with React, TypeScript, JavaScript,
+            jQuery, HTML5, CSS, SASS, LESS, and component libraries. Experience with USWDS
+            (U.S. Web Design System) for federal platforms and mobile-first development
+            strategies.
+          </>
         ),
         tags: [
+          {
+            name: "React",
+            icon: "react",
+          },
           {
             name: "JavaScript",
             icon: "javascript",
           },
           {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
+            name: "TypeScript",
+            icon: "typescript",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "Security, Identity & Compliance",
+        description: (
+          <>
+            Implementing enterprise security solutions including SAML, OAuth2, MFA, LDAP,
+            IAM, CSP, vulnerability remediation, OWASP mitigation, HIPAA compliance, and
+            federal security scan remediation. Experience with OneTrust integration and
+            Public Trust-level security requirements.
+          </>
+        ),
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "SAML",
+            icon: "lock",
+          },
+          {
+            name: "OAuth2",
+            icon: "lock",
           },
         ],
+        images: [],
+      },
+      {
+        title: "Accessibility & QA",
+        description: (
+          <>
+            Expert in Section 508 and WCAG 2.1 AA compliance, conducting accessibility
+            audits and remediation across public and administrative interfaces. Experience
+            with Cypress automated testing and accessibility-first development practices
+            for federal and healthcare platforms.
+          </>
+        ),
+        tags: [
+          {
+            name: "WCAG",
+            icon: "accessibility",
+          },
+          {
+            name: "Section 508",
+            icon: "accessibility",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "DevOps & Cloud Infrastructure",
+        description: (
+          <>
+            Designing and maintaining CI/CD pipelines for automated builds, tests, and
+            deployments. Extensive AWS experience (VPC, Route 53, RDS, EC2, ECS/EKS, S3,
+            CloudWatch, CloudFront, Snowflake). Coordinating with hosting vendors (Acquia,
+            Pantheon) for platform optimization and deployment automation.
+          </>
+        ),
+        tags: [
+          {
+            name: "AWS",
+            icon: "aws",
+          },
+          {
+            name: "CI/CD",
+            icon: "git",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Languages & Additional Technologies",
+        description: (
+          <>
+            Proficient in Python, PHP, SQL, HTML5, CSS, JavaScript, C++, bash, NoSQL,
+            TypeScript, ReactJS, jQuery, Solidity, Java. Experience with business
+            intelligence tools, ETL processes, API development, and data visualization
+            with Chart.js.
+          </>
+        ),
+        tags: [
+          {
+            name: "Python",
+            icon: "python",
+          },
+          {
+            name: "SQL",
+            icon: "database",
+          },
+          {
+            name: "Java",
+            icon: "java",
+          },
+        ],
+        images: [],
       },
     ],
   },
@@ -235,8 +454,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
+  title: "Writing about Drupal, enterprise CMS, and federal web development",
+  description: `Technical insights, tutorials, and thoughts on Drupal development, accessibility, security, and building platforms for regulated environments`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
