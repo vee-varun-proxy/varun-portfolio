@@ -56,14 +56,14 @@ export function GeoDebugPanel() {
       radius="l"
       background="surface"
       border="neutral-alpha-medium"
-      style={{
-        position: "fixed",
-        bottom: "16px",
-        right: "16px",
-        zIndex: 9999,
-        maxWidth: "320px",
-        boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
-      }}
+        style={{
+          position: "fixed",
+          bottom: "16px",
+          right: "16px",
+          zIndex: 9998,
+          maxWidth: "320px",
+          boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
+        }}
     >
       <Row horizontal="between" vertical="center">
         <Text variant="label-strong-s">Geo Debug Panel</Text>
@@ -127,12 +127,50 @@ export function GeoDebugPanel() {
               {affinity?.contextualMessage}
             </Text>
           </Column>
+
+          {affinity?.featuredContent && (
+            <Column gap="4">
+              <Text variant="label-default-s" onBackground="neutral-weak">
+                Featured Content
+              </Text>
+              <Text variant="body-default-xs" onBackground="neutral-weak">
+                {affinity.featuredContent}
+              </Text>
+            </Column>
+          )}
+
+          {affinity?.interest && (
+            <Column gap="4">
+              <Text variant="label-default-s" onBackground="neutral-weak">
+                Content Interest
+              </Text>
+              <Badge background="brand-alpha-weak" onBackground="brand-strong">
+                {affinity.interest}
+              </Badge>
+            </Column>
+          )}
         </>
       )}
 
-      <Text variant="body-default-xs" onBackground="neutral-weak">
-        Edit src/middleware.ts to test different segments
-      </Text>
+      <Column gap="4">
+        <Text variant="label-default-s" onBackground="neutral-weak">
+          Testing
+        </Text>
+        <Text variant="body-default-xs" onBackground="neutral-weak">
+          Add query params to test:
+          <br />
+          • <code>?test-segment=local</code>
+          <br />
+          • <code>?test-city=Fairfax&test-region=VA</code>
+          <br />
+          • <code>?test-geo=gb</code> (international)
+          <br />
+          See src/proxy.ts for all options
+        </Text>
+        <Text variant="body-default-xs" onBackground="neutral-weak" style={{ marginTop: "8px" }}>
+          Check browser console for segment details
+        </Text>
+      </Column>
     </Column>
   );
 }
