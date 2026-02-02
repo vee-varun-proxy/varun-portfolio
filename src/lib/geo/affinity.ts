@@ -41,7 +41,7 @@ function selectAvatar(geo: GeoLocation, sessionId: string): string {
  */
 const GREETINGS: Record<VisitorSegment, string> = {
   local: "Hey neighbor! 👋",
-  "tech-hub": "Welcome, fellow technologist",
+  "tech-hub": "Welcome",
   federal: "Welcome",
   "drupal-community": "Hello, Drupal friend!",
   healthcare: "Welcome",
@@ -61,21 +61,23 @@ const INTEREST_GREETINGS: Record<ContentInterest, string | null> = {
 
 /**
  * Contextual messages to display based on segment
+ * US visitors: Focus on Drupal & govtech consulting
+ * International: Focus on AI-enabled architecture
  */
 const CONTEXTUAL_MESSAGES: Record<VisitorSegment, string> = {
   local:
-    "I'm based right here in the DC metro area. Let's grab coffee and talk shop.",
+    "Drupal architect based in the DC metro area. 20 years delivering government web platforms.",
   "tech-hub":
-    "I've worked with teams across major tech hubs on enterprise platforms.",
+    "Drupal architect specializing in government platforms. Federal & state agency experience.",
   federal:
-    "20 years delivering web platforms for federal and state agencies. I understand the constraints.",
+    "20 years delivering web platforms for federal and state agencies. Deep Drupal expertise, security clearance available.",
   "drupal-community":
-    "Active Drupal contributor – maybe we've met at a camp or con?",
+    "Active Drupal contributor with 20 years of experience. From small sites to federal platforms.",
   healthcare:
-    "Currently building HIPAA-compliant healthcare platforms at Express Scripts.",
+    "Currently building HIPAA-compliant healthcare platforms at Express Scripts with Drupal backend.",
   international:
-    "I've delivered projects for governments in Jamaica, St. Lucia, and Arizona state agencies.",
-  general: "20 years building enterprise platforms with Drupal and modern frameworks.",
+    "AI-enabled full-stack architect. Leveraging LLMs and modern tooling to accelerate enterprise development.",
+  general: "Drupal architect with 20 years delivering government platforms. Federal & state agency experience.",
 };
 
 /**
@@ -159,27 +161,29 @@ export function buildAffinityProfile(
 
 /**
  * Get personalized headline based on visitor context
+ * US visitors see Drupal/govtech focus
+ * International visitors see AI-enabled architect focus
  */
 export function getPersonalizedHeadline(segment: VisitorSegment, interest?: ContentInterest | null): string {
   // Interest-based headlines take priority
   if (interest && interest !== "general") {
     const interestHeadlines: Record<ContentInterest, string> = {
       frontend: "Modern frontend architecture for enterprise",
-      drupal: "Drupal architect with 20 years of enterprise experience",
+      drupal: "Drupal architect with 20 years of government experience",
       govtech: "Government web platforms built right",
-      general: "Building enterprise platforms with Drupal & React",
+      general: "Drupal architect & govtech consultant",
     };
     return interestHeadlines[interest];
   }
 
   const headlines: Record<VisitorSegment, string> = {
-    local: "Building enterprise platforms in the DMV",
-    "tech-hub": "Enterprise Drupal & React expertise",
-    federal: "Trusted partner for government web platforms",
+    local: "Drupal architect & government technology consultant",
+    "tech-hub": "Drupal architect specializing in government platforms",
+    federal: "Trusted Drupal architect for government web platforms",
     "drupal-community": "Drupal contributor & enterprise architect",
-    healthcare: "HIPAA-compliant healthcare platform specialist",
-    international: "Global experience, enterprise results",
-    general: "Building enterprise platforms with Drupal & React",
+    healthcare: "Drupal architect building HIPAA-compliant platforms",
+    international: "AI-enabled architect building enterprise platforms faster",
+    general: "Drupal architect & govtech consultant",
   };
 
   return headlines[segment];

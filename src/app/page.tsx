@@ -11,7 +11,7 @@ import {
   Line,
 } from "@once-ui-system/core";
 import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp, PersonalizedAvatar, PersonalizedFeaturedBadge } from "@/components";
+import { Mailchimp, PersonalizedAvatar, PersonalizedFeaturedBadge, PersonalizedHeadline, PersonalizedSubline } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { getPosts } from "@/utils/utils";
@@ -58,14 +58,10 @@ export default async function Home() {
             <PersonalizedFeaturedBadge />
           </RevealFx>
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
+            <PersonalizedHeadline fallback={home.headline} />
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
+            <PersonalizedSubline fallback={home.subline} />
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
             <Button
