@@ -16,7 +16,6 @@ import {
 import { Footer, Header, RouteGuard, Providers, GeoDebugPanel, TransparencyNotice, SegmentIndicator, ContentInteractionTracker } from "@/components";
 import { buildAffinityProfile, determineSegment } from "@/lib/geo";
 import { detectGeoLocation } from "@/lib/geo/detect-server";
-import { getSessionId } from "@/lib/session";
 import type { VisitorContext } from "@/lib/geo/types";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
@@ -35,13 +34,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Detect visitor context server-side to avoid client-side fetch
+  // Detect visitor context server-side for initial render
   let initialContext: VisitorContext | undefined;
   try {
     const geo = await detectGeoLocation();
     const segment = determineSegment(geo);
-    const sessionId = getSessionId(); // Will be replaced client-side, but needed for server render
-    const affinity = buildAffinityProfile(geo, sessionId);
+    const affinity = buildAffinityProfile(geo);
     initialContext = { geo, segment, affinity };
   } catch (error) {
     // If detection fails, VisitorContextProvider will fetch client-side

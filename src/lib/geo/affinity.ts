@@ -1,40 +1,5 @@
 import type { AffinityProfile, GeoLocation, VisitorSegment, ContentInterest } from "./types";
 import { determineSegment } from "./detect";
-import { getAvatarGender, getSessionId } from "../session";
-
-/**
- * Select avatar based on geo bucket and random gender (per AGENTS.md).
- * 
- * Rules:
- * - avatar_geo = geo_bucket (if geo_known) or 'global' (if not)
- * - avatar_gender = random_choice(['male','female']) (deterministic per session)
- * - Neutral avatar must always exist as control
- */
-function selectAvatar(geo: GeoLocation, sessionId: string): string {
-  // Determine geo bucket
-  let geoBucket: string;
-  if (geo.countryCode === "US") {
-    geoBucket = "us";
-  } else if (geo.continent && geo.continent !== "Unknown") {
-    // Use continent as bucket (normalized to lowercase, hyphenated)
-    geoBucket = geo.continent.toLowerCase().replace(/\s+/g, "-");
-  } else {
-    geoBucket = "global";
-  }
-
-  // Get deterministic gender assignment
-  const gender = getAvatarGender(sessionId);
-
-  // Construct avatar path: /images/avatars/{geoBucket}-{gender}.jpg
-  const avatarPath = `/images/avatars/${geoBucket}-${gender}.jpg`;
-
-  // Return the calculated avatar path.
-  // If the image doesn't exist, the browser will fail to load it and show a broken image.
-  // In production, you could implement a file existence check, but for now we'll
-  // return the path and let the browser handle missing images (or use onError handler).
-  // The neutral avatar is always available as fallback at /images/avatar.jpg
-  return avatarPath;
-}
 
 /**
  * Contextual greetings based on visitor segment
@@ -126,17 +91,15 @@ const FEATURED_CONTENT_BY_INTEREST: Record<ContentInterest, string> = {
 };
 
 /**
- * Build complete affinity profile for a visitor.
- * Avatar variant selected to isolate geo-based familiarity effects (per AGENTS.md).
- * Content interest can override segment-based featured content, greetings, and messages.
+ * Build affinity profile for a visitor.
+ * US visitors: Drupal/govtech messaging
+ * International: AI-enabled architect messaging
  */
 export function buildAffinityProfile(
   geo: GeoLocation,
-  sessionId?: string,
   interest?: ContentInterest | null,
 ): AffinityProfile {
   const segment = determineSegment(geo);
-  const session = sessionId || getSessionId();
 
   // Use interest-based content if available, otherwise use segment-based
   const featuredContent = interest && interest !== "general"
@@ -152,7 +115,7 @@ export function buildAffinityProfile(
   return {
     segment,
     greeting,
-    avatarVariant: selectAvatar(geo, session),
+    avatarVariant: "/images/avatar.jpg", // Single avatar, no geo-based variants
     contextualMessage,
     featuredContent,
     interest: interest || undefined,

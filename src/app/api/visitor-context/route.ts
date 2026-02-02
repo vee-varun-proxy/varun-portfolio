@@ -2,33 +2,18 @@ import { NextResponse } from "next/server";
 import { buildAffinityProfile, determineSegment } from "@/lib/geo";
 import { detectGeoLocation } from "@/lib/geo/detect-server";
 import type { VisitorContext } from "@/lib/geo/types";
-import { getSessionId } from "@/lib/session";
-import { headers } from "next/headers";
 
-// Using nodejs runtime - works both locally and on Vercel
-// Edge runtime would be faster but requires static export declaration
-
+/**
+ * Visitor Context API
+ * Returns geo location and content segment for personalization
+ * US visitors: Drupal/govtech messaging
+ * International: AI-enabled architect messaging
+ */
 export async function GET() {
   try {
     const geo = await detectGeoLocation();
     const segment = determineSegment(geo);
-    
-    // Get session ID from cookie or generate one
-    // Note: In production, you'd read from a cookie set by middleware
-    const headersList = await headers();
-    const sessionCookie = headersList.get("cookie");
-    let sessionId = sessionCookie
-      ?.split(";")
-      .find((c) => c.trim().startsWith("visitor_session="))
-      ?.split("=")[1];
-
-    // If no session cookie, we'll generate one client-side
-    // For server-side, use a temporary ID that will be replaced
-    if (!sessionId) {
-      sessionId = `temp-${Date.now()}`;
-    }
-
-    const affinity = buildAffinityProfile(geo, sessionId);
+    const affinity = buildAffinityProfile(geo);
 
     const visitorContext: VisitorContext = {
       geo,
@@ -45,7 +30,7 @@ export async function GET() {
   } catch (error) {
     console.error("Error detecting visitor context:", error);
 
-    // Return default context on error
+    // Return default US context on error
     const defaultContext: VisitorContext = {
       geo: {
         country: "United States",
@@ -60,7 +45,7 @@ export async function GET() {
         segment: "general",
         greeting: "Welcome",
         avatarVariant: "/images/avatar.jpg",
-        contextualMessage: "15+ years building enterprise platforms with Drupal and React.",
+        contextualMessage: "Drupal architect with 20 years delivering government platforms. Federal & state agency experience.",
       },
     };
 

@@ -105,50 +105,19 @@ export function GeoDebugPanel() {
 
           <Column gap="4">
             <Text variant="label-default-s" onBackground="neutral-weak">
-              Affinity Profile
+              Messaging
             </Text>
             <Text variant="body-default-xs">
-              Greeting: {affinity?.greeting}
-            </Text>
-            <Text variant="body-default-xs">
-              Avatar: {affinity?.avatarVariant}
-            </Text>
-          </Column>
-
-          <Column gap="4">
-            <Text variant="label-default-s" onBackground="neutral-weak">
-              Contextual Message
+              {segment === 'international' ? 'AI-Enabled Architect' : 'Drupal & GovTech'}
             </Text>
             <Text
               variant="body-default-xs"
               onBackground="neutral-weak"
-              style={{ fontStyle: "italic" }}
+              style={{ fontStyle: "italic", marginTop: "4px" }}
             >
               {affinity?.contextualMessage}
             </Text>
           </Column>
-
-          {affinity?.featuredContent && (
-            <Column gap="4">
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                Featured Content
-              </Text>
-              <Text variant="body-default-xs" onBackground="neutral-weak">
-                {affinity.featuredContent}
-              </Text>
-            </Column>
-          )}
-
-          {affinity?.interest && (
-            <Column gap="4">
-              <Text variant="label-default-s" onBackground="neutral-weak">
-                Content Interest
-              </Text>
-              <Badge background="brand-alpha-weak" onBackground="brand-strong">
-                {affinity.interest}
-              </Badge>
-            </Column>
-          )}
         </>
       )}
 
