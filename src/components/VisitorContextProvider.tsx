@@ -45,10 +45,27 @@ export function VisitorContextProvider({
 }: VisitorContextProviderProps) {
   const flags = getFeatureFlags();
   const [isOptedOut, setIsOptedOut] = useState(false);
+  const [urlSegmentOverride, setUrlSegmentOverride] = useState<VisitorSegment | null>(null);
 
-  // Check opt-out preference
+  // Check URL parameters and opt-out preference
   useEffect(() => {
     if (typeof window !== "undefined") {
+      // Check for segment override in URL (?segment=govtech or ?segment=ai-enabled)
+      const params = new URLSearchParams(window.location.search);
+      const segmentParam = params.get("segment");
+      
+      if (segmentParam === "govtech" || segmentParam === "ai-enabled" || segmentParam === "general") {
+        // Save to localStorage so it persists across pages
+        localStorage.setItem("segment_override", segmentParam);
+        setUrlSegmentOverride(segmentParam as VisitorSegment);
+      } else {
+        // Check if there's a saved preference
+        const savedSegment = localStorage.getItem("segment_override");
+        if (savedSegment === "govtech" || savedSegment === "ai-enabled" || savedSegment === "general") {
+          setUrlSegmentOverride(savedSegment as VisitorSegment);
+        }
+      }
+
       const optedOut = localStorage.getItem("personalization_opt_out") === "true";
       setIsOptedOut(optedOut);
     }
@@ -60,13 +77,23 @@ export function VisitorContextProvider({
   const [context, setContext] = useState<VisitorContextValue>({
     geo: shouldPersonalize ? (initialContext?.geo || null) : null,
     affinity: shouldPersonalize ? (initialContext?.affinity || null) : null,
-    segment: shouldPersonalize ? (initialContext?.segment || "general") : "general",
-    isLoading: shouldPersonalize ? !initialContext : false,
+    segment: urlSegmentOverride || (shouldPersonalize ? (initialContext?.segment || "general") : "general"),
+    isLoading: shouldPersonalize && !urlSegmentOverride ? !initialContext : false,
     error: null,
     isOptedOut: !shouldPersonalize,
   });
 
   useEffect(() => {
+    // If URL override is set, use it directly and skip fetching
+    if (urlSegmentOverride) {
+      setContext((prev) => ({
+        ...prev,
+        segment: urlSegmentOverride,
+        isLoading: false,
+      }));
+      return;
+    }
+
     // If opted out or disabled, don't fetch
     if (!shouldPersonalize) {
       setContext((prev) => ({
@@ -153,7 +180,7 @@ export function VisitorContextProvider({
     }
 
     fetchVisitorContext();
-  }, [initialContext, shouldPersonalize]);
+  }, [initialContext, shouldPersonalize, urlSegmentOverride]);
 
   return <VisitorCtx.Provider value={context}>{children}</VisitorCtx.Provider>;
 }

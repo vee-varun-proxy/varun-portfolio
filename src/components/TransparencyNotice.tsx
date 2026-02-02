@@ -38,12 +38,13 @@ export function TransparencyNotice() {
     setIsVisible(false);
   };
 
-  const handleOptOut = () => {
-    localStorage.setItem("personalization_opt_out", "true");
+  const handleSegmentChoice = (segment: string) => {
     localStorage.setItem("transparency_notice_dismissed", "true");
     setIsVisible(false);
-    // Reload to apply default experience
-    window.location.reload();
+    // Navigate to URL with segment parameter
+    const url = new URL(window.location.href);
+    url.searchParams.set("segment", segment);
+    window.location.href = url.toString();
   };
 
   return (
@@ -58,23 +59,27 @@ export function TransparencyNotice() {
         bottom: "16px",
         left: "16px",
         zIndex: 9999,
-        maxWidth: "320px",
+        maxWidth: "340px",
         boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
       }}
     >
-      <Text variant="body-default-s" onBackground="neutral-weak">
-        This site adapts based on context as a demonstration of applied personalization.
+      <Text variant="body-default-s" onBackground="neutral-strong">
+        This site shows different content based on your location.
       </Text>
-      <Row gap="8" wrap>
-        {flags.transparency.allowOptOut && (
-          <Button variant="secondary" size="s" onClick={handleOptOut}>
-            View default experience
-          </Button>
-        )}
-        <Button variant="tertiary" size="s" onClick={handleDismiss}>
-          Got it
+      <Text variant="body-default-xs" onBackground="neutral-weak">
+        Choose which version you'd like to see:
+      </Text>
+      <Column gap="8">
+        <Button variant="secondary" size="s" fillWidth onClick={() => handleSegmentChoice("govtech")}>
+          🏛️ Government/Healthcare Focus
         </Button>
-      </Row>
+        <Button variant="secondary" size="s" fillWidth onClick={() => handleSegmentChoice("ai-enabled")}>
+          🤖 AI/Tech Focus
+        </Button>
+        <Button variant="tertiary" size="s" fillWidth onClick={handleDismiss}>
+          Keep auto-detected
+        </Button>
+      </Column>
     </Column>
   );
 }
