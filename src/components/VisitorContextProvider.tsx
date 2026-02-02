@@ -84,7 +84,6 @@ export function VisitorContextProvider({
     if (initialContext && detectedInterest) {
       const updatedAffinity = buildAffinityProfile(
         initialContext.geo,
-        undefined, // sessionId will be generated
         detectedInterest
       );
       
@@ -102,7 +101,6 @@ export function VisitorContextProvider({
       if (detectedInterest) {
         const updatedAffinity = buildAffinityProfile(
           initialContext.geo,
-          undefined,
           detectedInterest
         );
         setContext((prev) => ({
@@ -133,7 +131,6 @@ export function VisitorContextProvider({
         if (detectedInterest) {
           finalAffinity = buildAffinityProfile(
             data.geo,
-            undefined,
             detectedInterest
           );
         }

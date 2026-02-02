@@ -5,7 +5,7 @@ import { Column, Row, Text, Button, Badge } from "@once-ui-system/core";
 import { useVisitorContext } from "./VisitorContextProvider";
 
 // Set to true to always show the debug panel, false to hide in production
-const FORCE_SHOW_DEBUG = true;
+const FORCE_SHOW_DEBUG = false;
 
 /**
  * Debug panel to inspect current visitor context.
